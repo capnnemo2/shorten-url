@@ -11,8 +11,8 @@ export default class App extends React.Component {
     const id = this.state.urls.length + 1;
 
     const shortUrl = this.generateShortUrl(id);
-
     const newUrl = { id: id, url: url, shortUrl: "t-rex/" + shortUrl };
+
     this.setState({
       urls: [...this.state.urls, newUrl],
       currentShortUrl: "t-rex/" + shortUrl,
@@ -31,14 +31,11 @@ export default class App extends React.Component {
       new_value = base62[temp_value % 62] + new_value;
       temp_value = (temp_value - (temp_value % 62)) / 62;
     }
-    console.log(new_value);
-
     return new_value;
   };
 
   render() {
     const shortUrl = this.state.currentShortUrl;
-    console.log(shortUrl);
     return (
       <div className="App">
         <header className="App-header">
